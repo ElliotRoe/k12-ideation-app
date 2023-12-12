@@ -13,7 +13,7 @@ export const TextBubble = ({ text, bot, emotion, className }: Props) => {
       className={`flex flex-row space-x-10 items-start justify-between ${className}`}
     >
       {bot && emotion && (
-        <AiAgent bot={bot} emotion={emotion} width={200} height={200} />
+        <AiAgent bot={bot} emotion={emotion} width={200} height={100} />
       )}
       <div className="rounded-xl border p-5">
         <p className="text-lg">{text}</p>

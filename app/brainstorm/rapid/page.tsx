@@ -46,7 +46,7 @@ export default function Rapid() {
   };
 
   return (
-    <div className="flex h-full flex-col items-center justify-between p-10 pb-24">
+    <div className="flex h-full flex-col items-center justify-between p-10 pb-24 space-y-10">
       <h3 className="scroll-m-20 text-4xl font-bold tracking-tight">{`Objective: Think of as many ideas as you can in ${minutes} minutes`}</h3>
       <TextBubble
         className="max-w-[700px]"

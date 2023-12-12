@@ -57,7 +57,7 @@ export default function Home() {
             {currentWords.map((word, index) => (
               <h1
                 key={index}
-                className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl"
+                className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl whitespace-nowrap overflow-visible"
               >
                 {word}
               </h1>
