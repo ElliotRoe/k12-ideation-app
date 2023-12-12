@@ -6,18 +6,15 @@ import Image from "next/image";
 import { type } from "os";
 import { wordList } from "@/lib/word-list";
 import { useEffect, useState } from "react";
-
-export type State = "brainstorm" | "decompose" | "build";
+import Link from "next/link";
 
 export default function Home() {
   const words = wordList; // Add more words as needed
-  const defaultState: State = "brainstorm";
-  const [activeStage, setActiveStage] = useState<State>(defaultState);
   // First 5 words of word list
   const [currentWords, setCurrentWords] = useState<string[]>(words.slice(0, 5));
   const [wordTransformShift, setWordTransformShift] = useState<number>(0);
-  const shiftAnimSpeed = 200;
-  const shiftFrequency = 5000;
+  const shiftAnimSpeed = 300;
+  const shiftFrequency = 3000;
 
   useEffect(() => {
     const intervalId = setInterval(async () => {
@@ -40,24 +37,7 @@ export default function Home() {
   }, [currentWords]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Tabs
-        defaultValue={defaultState}
-        value={activeStage}
-        className="w-[400px] pointer-events-none"
-      >
-        <TabsList className="w-full">
-          <TabsTrigger value="brainstorm">
-            <span className="text-4xl">🧠</span>
-          </TabsTrigger>
-          <TabsTrigger value="decompose">
-            <span className="text-4xl">⚡️</span>
-          </TabsTrigger>
-          <TabsTrigger value="build">
-            <span className="text-4xl">🔨</span>
-          </TabsTrigger>
-        </TabsList>
-      </Tabs>
+    <div className="flex h-full flex-col items-center justify-between p-24">
       <div className="flex flex-row items-center justify-centers space-x-3">
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           {`Let's build something`}
@@ -86,13 +66,12 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <Button
-          className="w-[350px] h-[100px] text-2xl rounded-xl font-bold tracking-tight lg:text-5xl"
-          onClick={() => setActiveStage("decompose")}
-        >
-          Get Started
-        </Button>
+        <Link href="/brainstorm">
+          <Button className="w-[350px] h-[100px] text-2xl rounded-xl font-bold tracking-tight lg:text-5xl">
+            Get Started
+          </Button>
+        </Link>
       </div>
-    </main>
+    </div>
   );
 }
