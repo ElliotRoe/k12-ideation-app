@@ -38,7 +38,7 @@ export default function Reflect() {
   return (
     <div className="flex h-full flex-col items-center justify-between p-10 pb-10">
       <h3 className="scroll-m-20 text-4xl font-bold tracking-tight mb-10">
-        Objective: Set a goal for your project
+        Objective: Reflect on the quality of your goal
       </h3>
       <TextBubble
         className="max-w-[700px]"
