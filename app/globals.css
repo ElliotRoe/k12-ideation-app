@@ -33,6 +33,9 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --brainstorm-base: 42 100% 70%;
+    --brainstorm-border: 42 100% 40%;
   }
 
   .dark {
@@ -89,5 +92,11 @@
       black 50%,
       transparent 80%
     );
+  }
+
+  .brainstorm-shadow {
+    -webkit-box-shadow: 4px 4px 0px 0px rgba(204, 143, 0);
+    -moz-box-shadow: 4px 4px 0px 0px rgba(204, 143, 0);
+    box-shadow: 4px 4px 0px 0px rgba(204, 143, 0);
   }
 }

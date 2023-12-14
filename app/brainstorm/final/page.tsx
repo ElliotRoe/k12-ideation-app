@@ -10,17 +10,18 @@ export default function Final() {
   const hasHydrated = useHasHydrated();
 
   return (
-    <div className="flex h-full flex-col items-center justify-between p-10 pb-24">
+    <div className="flex h-full flex-col items-center justify-between p-10 pb-10">
       <h3 className="scroll-m-20 text-4xl font-bold tracking-tight">
         End of prototype demo
       </h3>
       <TextBubble
         className="max-w-[700px]"
-        bot="brainstorm-bot"
+        bot="brainstorm"
         emotion="happy"
+        animate={true}
         text="Amazing Job! I love your idea! The next step is to break down your idea into smaller pieces. This will help you to plan out your project and make it easier to get started. Let's get to it!"
       />
-      <div className="flex flex-row items-center justify-center w-full relative">
+      <div className="flex flex-row items-center justify-center w-full relative mb-20">
         <div className="border p-5 rounded-full bg-background z-10 absolute drop-shadow-sm animate-bounce">
           <p className="text-3xl font-bold">{hasHydrated && selectedIdea}</p>
         </div>

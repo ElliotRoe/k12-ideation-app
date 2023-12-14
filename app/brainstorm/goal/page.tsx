@@ -5,6 +5,7 @@ import { TextBubble } from "@/components/text-bubble";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
+import { useLocalStorage } from "usehooks-ts";
 
 export default function Goal() {
   const goals = [
@@ -16,17 +17,19 @@ export default function Goal() {
     "I'm going to create a game that feels like a magical adventure!",
   ];
 
+  const [_, setUserGoal] = useLocalStorage<string>("userGoal", "");
   const [goal, setGoal] = useState<string>("");
 
   return (
-    <div className="flex h-full flex-col items-center justify-between p-10 pb-24">
+    <div className="flex h-full flex-col items-center justify-between p-10 pb-10">
       <h3 className="scroll-m-20 text-4xl font-bold tracking-tight mb-10">
         Objective: Set a goal for your project
       </h3>
       <TextBubble
         className="max-w-[700px]"
-        bot="brainstorm-bot"
+        bot="brainstorm"
         emotion="happy"
+        animate={true}
         text="Exciting times! Let's kick off by setting a clear goal for your project. Think of something specific and challenging you want to achieve. Remember, a well-defined goal boosts motivation and performance. What will you aim for today?"
       />
       <p className="text-2xl font-bold mb-3">Here are some example ideas:</p>
@@ -51,7 +54,7 @@ export default function Goal() {
           value={goal}
           placeHolder="Type your goal..."
         />
-        <Link href="/brainstorm/rapid">
+        <Link href="/brainstorm/reflect" onClick={() => setUserGoal(goal)}>
           <Button>Set</Button>
         </Link>
       </div>

@@ -50,6 +50,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brainstorm: {
+          base: "hsl(var(--brainstorm-base))",
+          border: "hsl(var(--brainstorm-border))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",

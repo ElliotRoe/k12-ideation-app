@@ -8,34 +8,33 @@ export type Emotion =
   | "surprised"
   | "talking";
 
-export type BaseBot = "brainstorm-bot" | "decompose-bot" | "build-bot";
+export type BaseBot = "brainstorm" | "decompose" | "build";
 
 type AiAgentProps = {
   bot: BaseBot;
   emotion: Emotion;
   width?: number;
   height?: number;
+  className?: string;
 };
 
-export const AiAgent = ({ bot, emotion, width, height }: AiAgentProps) => {
+export const AiAgent = ({
+  bot,
+  className,
+  emotion,
+  width,
+  height,
+}: AiAgentProps) => {
   return (
-    <div className={`relative w-[${width}px] h-[${height}px]`}>
-      <div className="absolute">
-        <Image
-          src={`/images/ai-agent/${bot}.png`}
-          alt="AI Agent"
-          width={width}
-          height={height}
-        />
-      </div>
-      <div className="absolute">
-        <Image
-          src={`/images/face/${emotion}.png`}
-          alt="Face"
-          width={width}
-          height={height}
-        />
-      </div>
+    <div
+      className={`${className} relative w-[${width}px] h-[${height}px] bg-brainstorm-base rounded-3xl border border-brainstorm-border border-8 brainstorm-shadow`}
+    >
+      <Image
+        src={`/images/face/${emotion}.png`}
+        alt="Face"
+        width={width}
+        height={height}
+      />
     </div>
   );
 };
